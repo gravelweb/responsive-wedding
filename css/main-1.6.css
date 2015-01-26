@@ -140,7 +140,6 @@ body {
 #introtext {
     display: block;
     padding: 10px 0 10px 0;
-    margin-bottom: 200px;
     background: black;
 
     -ms-border-radius: 8px;
@@ -152,26 +151,26 @@ body {
     /* Fallback for web browsers that doesn't support RGBa */
     background: rgb(0, 0, 0);
     /* RGBa with 0.7 opacity */
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000)";
 }
 
-#introtext .head-sarah {
-    font-family: "EdwardianScrAltITCTT", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 5em;
+#introtext .head-liana {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 2em;
     line-height: 100%;
 }
 #introtext .amp {
     position: relative;
     top: 19px;
-    margin-left: -10px;
+    margin-left: -20px;
     font-size: 0.7em;
 }
-#introtext .head-brad {
-    font-family: "futura_ltbook", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+#introtext .head-jonathan {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2em;
     line-height: 100%;
 }
@@ -233,7 +232,7 @@ nav ul li a::-moz-focus-inner {border:0;}
    ============== */
 
 .main {
-    padding: 30% 0;
+    padding: 20% 0;
 }
 .main header {
     float: left;
@@ -241,7 +240,7 @@ nav ul li a::-moz-focus-inner {border:0;}
 }
 
 /* ==========================================================================
-   Brad's custom styles
+   Jonathan's custom styles
    ========================================================================== */
 * { margin: 0; padding: 0; }
 html {
@@ -360,21 +359,20 @@ section h2 {
         padding: 30px 0 30px 0;
     }
 
-    #introtext .head-sarah {
-        font-size: 7em;
+    #introtext .head-liana {
+        font-size: 3em;
     }
     #introtext .amp {
         position: relative;
         top: 29px;
         font-size: 0.9em;
-        margin-left: -20px;
+        margin-left: -30px;
     }
-    #introtext .head-brad {
+    #introtext .head-jonathan {
         font-size: 3em;
     }
     #introtext .date {
         font-size: 1.1em;
-        margin-top: 15px;
         margin-bottom: 20px;
     }
     nav {
@@ -471,14 +469,14 @@ section h2 {
     WIDE: Menu
    ============ */
 
-    #introtext .head-sarah {
-        font-size: 9em;
+    #introtext .head-liana {
+        font-size: 4em;
    }
     #introtext .amp {
         top: 0;
         font-size: 1em;
     }
-    #introtext .head-brad {
+    #introtext .head-jonathan {
         font-size: 4em;
     }
     #introtext .date {
@@ -493,7 +491,6 @@ section h2 {
 
     .main header {
         margin-top: 10%;
-        margin-bottom: 30%;
         float: left;
         width: 100%;
     }
@@ -538,7 +535,7 @@ section h2 {
    =============== */
 
     nav a {
-        padding: 15px 3%;
+        padding: 15px 2%;
         font-size: 120%;
     }
 
@@ -547,14 +544,14 @@ section h2 {
         margin: 0 auto;
     }
 
-    #introtext .head-sarah {
-        font-size: 11em;
+    #introtext .head-liana {
+        font-size: 5em;
     }
     #introtext .amp {
         top: 0;
         font-size: 1.1em;
     }
-    #introtext .head-brad {
+    #introtext .head-jonathan {
         font-size: 5em;
     }
     #introtext .date {
@@ -566,7 +563,6 @@ section h2 {
 
     .main header {
         margin-top: 4%;
-        margin-bottom: 30%;
         float: left;
         width: 100%;
     }

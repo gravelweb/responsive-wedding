@@ -21,10 +21,10 @@
 
         <link rel="shortcut icon" href="favicon.ico?v=1">
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main-1.6.css">
+        <link rel="stylesheet" href="../css/normalize.min.css">
+        <link rel="stylesheet" href="../css/main-1.6.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -36,9 +36,9 @@ Initial work by Bradley Greenwood (http://scal.io).
 Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
 
-        <div id="bg-image">
+        <!--div id="bg-image">
             <img src="img/bg-pic.jpg" alt="bg" />
-        </div>
+        </div-->
 
         <div id="bg-container">
 
@@ -60,15 +60,22 @@ Tailored for Jonathan and Liana, by Jonathan
 
             <div class="main-container">
                 <div class="main wrapper clearfix">
+                    
 
                     <header>
                         <div id="introtext">
-                            <span class="head-liana">Liana</span>
-                            <span class="head-jonathan">&nbsp;
-                                <span class="amp">&amp;</span> 
-                                Jonathan
-                            </span>
-                            <div class="date">AUGUST 30<sup>th</sup>, 2015</div>
+                            <form action="mail.php" method="post">
+                                First name:<br>
+                                <input type="text" name="firstname" value="">
+                                <br>
+                                Last name:<br>
+                                <input type="text" name="lastname" value="">
+                                <br>
+                                Email:<br>
+                                <input type="text" name="email" value="">
+                                <br><br>
+                                <input type="submit" value="Submit">
+                            </form>
                         </div>
                     </header>
 
