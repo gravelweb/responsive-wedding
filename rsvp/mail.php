@@ -6,9 +6,7 @@ if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
  
-    $email_to = "gravelweb@gmail.com";
- 
-    $email_subject = "New RSVP!";
+    $email_to = "jonathanandliana.rsvp@gmail.com";
  
      
  
@@ -112,9 +110,12 @@ if(isset($_POST['email'])) {
  
     $email_message .= "Email: ".clean_string($email_from)."\n";
  
-    $email_message .= "Telephone: ".clean_string($telephone)."\n";
+    /*$email_message .= "Telephone: ".clean_string($telephone)."\n";
  
-    $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Comments: ".clean_string($comments)."\n";*/
+ 
+
+    $email_subject = "$first_name $last_name RSVP'd!";
  
      
  
@@ -122,10 +123,10 @@ if(isset($_POST['email'])) {
  
 // create email headers
  
-$headers = 'From: '.$email_from."\r\n".
- 
+$headers = 'MIME-Version: 1.0'."\r\n".
+'Content-type: text/html; charset=iso-8859-1'."\r\n".
+'From: rsvp@jonathanandliana.com'."\r\n".
 'Reply-To: '.$email_from."\r\n" .
- 
 'X-Mailer: PHP/' . phpversion();
  
 @mail($email_to, $email_subject, $email_message, $headers);  
