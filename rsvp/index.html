@@ -21,10 +21,12 @@
 
         <link rel="shortcut icon" href="favicon.ico?v=1">
 
-        <link rel="stylesheet" href="../css/normalize.min.css">
-        <link rel="stylesheet" href="../css/main-1.6.css">
+        <link rel="stylesheet" href="/css/normalize.min.css">
+        <link rel="stylesheet" href="/css/main-1.6.css">
+        
+        <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
-        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -35,10 +37,10 @@
 Initial work by Bradley Greenwood (http://scal.io).
 Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
-
-        <!--div id="bg-image">
-            <img src="img/bg-pic.jpg" alt="bg" />
-        </div-->
+ 
+        <div id="bg-image">
+            <img src="/img/bg-pic.jpg" alt="bg" />
+        </div>
 
         <div id="bg-container">
 
@@ -59,33 +61,58 @@ Tailored for Jonathan and Liana, by Jonathan
             </div>
 
             <div class="main-container">
-                <div class="main wrapper clearfix">
+                <div class="rsvp wrapper clearfix">
                     
+                    <div id="rsvp-text">
+                        <form id="rsvp-form" action="rsvpd.php" method="post">
+                            <div class="rsvp-label">Name(s)</div>
+                            <div class="rsvp-field"><input type="text" name="names" value=""></div>
+                            
+                            <div class="rsvp-label">Can you join us?</div>
+                            <div class="rsvp-field">
+                            	<input type="radio" name="rsvp" value="Yes"> So there!<br/>
+                            	<input type="radio" name="rsvp" value="No"> Can't make it!
+                            </div>
+                            
+                            <div class="rsvp-label">No. Adults</div>
+                            <div class="rsvp-field"><input type="text" name="no-adults" value=""></div>
+                            
+                            <div class="rsvp-label">No. Children</div>
+                            <div class="rsvp-field"><input type="text" name="no-children" value=""></div>
+                            
+                            <div class="rsvp-label">Dietary Restrictions</div>
+                            <div class="rsvp-field"><input type="text" name="diet" value=""></div>
+                            
+                            <div class="rsvp-label">Dietary Restrictions</div>
+                            <div class="rsvp-field"><input type="text" name="diet" value=""></div>
+                            
+                            <div class="rsvp-label">Do you plan to stay at the 'blah blah blah'?</div>
+                            <div class="rsvp-field">
+                            	<input type="radio" name="hotel" value="Yes"> Yes<br/>
+                            	<input type="radio" name="hotel" value="No"> No<br/>
+                            	<input type="radio" name="hotel" value="Haven't decided"> Haven't decided<br/>
+                            </div>
 
-                    <header>
-                        <div id="introtext">
-                            <form action="mail.php" method="post">
-                                First name:<br>
-                                <input type="text" name="firstname" value="">
-                                <br>
-                                Last name:<br>
-                                <input type="text" name="lastname" value="">
-                                <br>
-                                Email:<br>
-                                <input type="text" name="email" value="">
-                                <br><br>
-                                <input type="submit" value="Submit">
-                            </form>
-                        </div>
-                    </header>
+                            <div class="rsvp-label">Comments! Song Requests! Inquiries!</div>
+                            <div class="rsvp-field">
+                            	<textarea name="comments" form="rsvp-form"></textarea>
+                            </div>
+                                                  
+                            <div class="rsvp-label">Email Address</div>
+                            <div class="rsvp-field"><input type="text" name="email" value=""></div>
 
+                            <div class="rsvp-field"><input type="submit" value="Submit"></div>
+                        </form>
+                        <div id="rsvp-inquiry">Inquiry? Email us! <a href="mailto:jonathandliana.rsvp@gmail.com?subject=RSVP Inquiry">jonathandliana.rsvp@gmail.com</a></div>
+                    </div>
+                        
                     <div class="clearfix"></div>
 
                 </div> <!-- #main -->
             </div> <!-- #main-container -->
         </div> <!-- #bg-container -->
 
-        <script src="js/main-1.6.js"></script>
+        <script src="/js/main-1.6.js"></script>
 
         <script>
           var _gaq = _gaq || [];

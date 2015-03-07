@@ -140,7 +140,10 @@ body {
 #introtext {
     display: block;
     padding: 10px 0 10px 0;
-    background: black;
+    /*background: white;*/
+    
+    /*color: #6CA061;*/
+    color: black;
 
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
@@ -149,9 +152,9 @@ body {
     border-radius: 8px;
 
     /* Fallback for web browsers that doesn't support RGBa */
-    background: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
     /* RGBa with 0.7 opacity */
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
     /* For IE 8*/
@@ -159,7 +162,7 @@ body {
 }
 
 #introtext .head-liana {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Brain Flower", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2em;
     line-height: 100%;
 }
@@ -170,13 +173,13 @@ body {
     font-size: 0.7em;
 }
 #introtext .head-jonathan {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Brain Flower", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2em;
     line-height: 100%;
 }
 #introtext .date {
     margin-top: 10px;
-    font-family: "futura_ltbook", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Special Elite", cursive;
     font-size: 1em;
 }
 
@@ -232,7 +235,7 @@ nav ul li a::-moz-focus-inner {border:0;}
    ============== */
 
 .main {
-    padding: 20% 0;
+    padding: 500px 0;
 }
 .main header {
     float: left;
@@ -545,14 +548,14 @@ section h2 {
     }
 
     #introtext .head-liana {
-        font-size: 5em;
+        font-size: 6em;
     }
     #introtext .amp {
         top: 0;
         font-size: 1.1em;
     }
     #introtext .head-jonathan {
-        font-size: 5em;
+        font-size: 6em;
     }
     #introtext .date {
 
@@ -797,6 +800,13 @@ section h2 {
         font-style: normal;
 }
 
+@font-face {
+        font-family: 'Brain Flower';
+        src: url('brain-flower.ttf');
+        font-weight: normal;
+        font-style: normal;
+}
+
 .responsive-image.proposal {
     text-align: center;
     margin: 60px auto 60px auto;
@@ -866,3 +876,66 @@ a.email {
     border-radius: 2px;
 }
 
+/* RSVP Section */
+@font-face {
+    font-family: "Drawing with markers";
+    src: url(/css/drawing-with-markers.ttf);
+}
+
+.rsvp {
+	padding-top: 80px;
+}
+
+#rsvp-text {
+    display: block;
+    background: white;
+    
+    color: black;
+    font-family: Helvetica, Arial;
+    font-size: 1em;
+    background: rgb(255, 255, 255);
+    
+    text-align: left;
+}
+
+.rsvp-field input[type="submit"] {
+    font-family: Helvetica, Arial;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+#rsvp-text {
+    padding: 30px 30px 30px 30px;
+}
+
+.rsvp-label {
+	display: inline-block;
+	width: 40%;
+	vertical-align: top;
+	line-height: 2;
+}
+
+.rsvp-field {
+	display: inline-block;
+	width: 58%;
+	margin-bottom: 10px;
+}
+
+.rsvp-field input[type="text"],
+.rsvp-field textarea{
+	width: 75%;
+    font-family: 'Indie Flower', Helvetica, Arial;
+    font-weight: normal;
+}
+
+.rsvp-field textarea {
+	height: 250px;
+}
+
+#rsvp-inquiry {
+	text-align: center;
+}
+
+#rsvp-inquiry a {
+	color: blue;
+}
