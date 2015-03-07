@@ -99,14 +99,14 @@ if(count($missing_params) == 0 and count($bad_param_values) == 0) {
         <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
         <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 
-        <link rel="shortcut icon" href="favicon.ico?v=1">
+        <link rel="shortcut icon" href="../favicon.ico?v=1">
 
-        <link rel="stylesheet" href="/css/normalize.min.css">
-        <link rel="stylesheet" href="/css/main-1.6.css">
+        <link rel="stylesheet" href="../css/normalize.min.css">
+        <link rel="stylesheet" href="../css/main-1.6.css">
         
         <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
 
-        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -119,7 +119,7 @@ Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
  
         <div id="bg-image">
-            <img src="/img/liana-flower.png" alt="bg" />
+            <img src="../img/liana-flower.png" alt="bg" />
         </div>
 
         <div id="bg-container">
@@ -128,12 +128,12 @@ Tailored for Jonathan and Liana, by Jonathan
                 <div id="heading" class="wrapper clearfix">
                     <nav id="nav">
                         <ul>
-                            <li><a href="/thecouple">THE COUPLE</a></li>
-                            <li><a href="/theweddingparty">THE WEDDING PARTY</a></li>
-                            <li><a href="/thebigday">THE BIG DAY</a></li>
-                            <li><a href="/accommodations">ACCOMMODATIONS</a></li>
-                            <li><a href="/registry">REGISTRY</a></li>
-                            <li><a href="/rsvp">RSVP</a></li>
+                            <li><a href="../thecouple">THE COUPLE</a></li>
+                            <li><a href="../theweddingparty">THE WEDDING PARTY</a></li>
+                            <li><a href="../thebigday">THE BIG DAY</a></li>
+                            <li><a href="../accommodations">ACCOMMODATIONS</a></li>
+                            <li><a href="../registry">REGISTRY</a></li>
+                            <li><a href="../rsvp">RSVP</a></li>
                         </ul>
 
                     </nav>
