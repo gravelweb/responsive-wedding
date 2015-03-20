@@ -947,6 +947,16 @@ a.email {
 	color: blue;
 }
 
+.wedding-party {
+	padding: 80px 0 30px 0;
+}
+
+#wp-pictures {
+    display: block;
+    margin-top: 50px;
+    color: black;
+}
+
 #notfinished {
     display: block;
     padding: 10px 0 10px 0;

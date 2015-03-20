@@ -23,6 +23,7 @@
 
         <link rel="stylesheet" href="../css/normalize.min.css">
         <link rel="stylesheet" href="../css/main-1.6.css">
+        <link rel="stylesheet" href="../css/vendor/wookmark.css">
         
         <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 
@@ -38,9 +39,10 @@ Initial work by Bradley Greenwood (http://scal.io).
 Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
 
-        <div id="bg-image">
+        <!--div id="bg-image">
             <img src="../img/bg-pic.jpg" alt="bg" />
-        </div>
+        </div-->
+        <div class="progress-bar"></div>
 
         <div id="bg-container">
 
@@ -61,13 +63,9 @@ Tailored for Jonathan and Liana, by Jonathan
             </div>
 
             <div class="main-container">
-                <div class="main wrapper clearfix">
+                <div id="wp-pictures" class="wedding-party wrapper clearfix">
 
-                    <header>
-                        <div id="notfinished">
-                            This page is under construction. Please check again soon!
-                        </div>
-                    </header>
+                    <ul id="wp-container" class="tiles-wrap animated"></ul>
 
                     <div class="clearfix"></div>
 
@@ -75,7 +73,53 @@ Tailored for Jonathan and Liana, by Jonathan
             </div> <!-- #main-container -->
         </div> <!-- #bg-container -->
 
-        <script src="js/main-1.6.js"></script>
+        <script src="../js/main-1.6.js"></script>
+        <script>
+        	(function ($){
+        		var loadedImages = 0,
+        		    $progressBar = $('.progress-bar'),
+        		    container = '#wp-container',
+        		    $container = $(container),
+        		    tileCount = 6,
+        		    itemWidth = 320,
+        		    imgWidth = 310,
+        		    wookmark;
+        		    
+        		$container.append('<li class="tile-loading"><img src="../img/wp/cinquina.jpg"><p>Chantal Battison</p></li>');
+        		$container.append('<li class="tile-loading"><img src="../img/wp/brigitte.jpg"><p>Brigitte Patenaude</p></li>');
+        		$container.append('<li class="tile-loading"><img src="../img/wp/liz.jpg"><p>Elisabeth Levesque-Mumford</p></li>');
+        		$container.append('<li class="tile-loading"><img src="../img/wp/alink.jpg"><p>Aleksandra Diotte</p></li>');
+        		$container.append('<li class="tile-loading"><img src="../img/wp/helena.jpg"><p>Helene Campbell</p></li>');
+        		$container.append('<li class="tile-loading"><img src="../img/wp/zab.jpg"><p>Isabella Pace</p></li>');
+        		
+        		$("#wp-container").find("img").each(function(index) {
+        			this.onload = function() {
+        				console.log(this.naturalWidth);
+        				ratio = (imgWidth)/this.naturalWidth;
+        				this.width = imgWidth;
+        				this.height = this.naturalHeight * ratio;
+        			};
+        		});
+ 
+        		wookmark = new Wookmark(container, {
+        			autoResize: true,
+        			offset: 5,
+        			outerOffset: 10,
+        			itemWidth: itemWidth,
+        			fillEmptySpace: true
+        		});
+        		
+        		$container.imagesLoaded()
+        		    .always(function() {
+        		    	$progressBar.hide();
+        		    })
+        		    .progress(function (instance, image) {
+        		    	$(image.img).closest('li').removeClass('tile-loading');
+        		    	$progressBar.css('width', (++loadedImages / tileCount * 100) + '%');
+        		    	wookmark.updateOptions();
+        		    });
+        	})(jQuery);
+        </script>
 
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
