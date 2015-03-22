@@ -72,6 +72,7 @@ body {
     font: 16px/26px Helvetica, Helvetica Neue, Arial;
 }
 
+.wp-wrapper, 
 .wrapper {
     height: 100%;
     position: relative;
@@ -144,21 +145,6 @@ body {
     
     /*color: #6CA061;*/
     color: black;
-
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-
-    /* Fallback for web browsers that doesn't support RGBa */
-    background: rgb(255, 255, 255);
-    /* RGBa with 0.7 opacity */
-    background: rgba(255, 255, 255, 0);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000)";
 }
 
 #introtext .head-liana {
@@ -284,7 +270,7 @@ section {
     padding: 25px;
     background-color: black;
     height: 100%;
-    margin-top: 200px;
+    margin-top: 280px;
     color: white;
 
     -ms-border-radius: 8px;
@@ -418,10 +404,11 @@ section h2 {
         margin-top: 10%;
         float: left;
         width: 40%;
-        min-width: 320px;
+        min-width: 	px;
     }
 
     section {
+    	margin-top: 80px;
         padding: 40px 40px 70px 40px;
     }
     section h1 {
@@ -437,7 +424,7 @@ section h2 {
     }
 
     #gmap iframe {
-        height: 400px;
+        height: 600px;
     }
 
 
@@ -570,7 +557,6 @@ section h2 {
         width: 100%;
     }
 
-  
 }
 
 /* ==========================================================================
@@ -883,23 +869,19 @@ a.email {
 }
 
 .rsvp {
-	padding-top: 80px;
+	padding: 40px 0 30px 0;
 }
 
 #rsvp-form-header {
-	font-size: 1.5em;
+	font-size: 1em;
 	font-weight: bold;
 	padding-bottom: 20px;
 }
 
 #rsvp-text {
-    display: block;
-    background: white;
-    
     color: black;
     font-family: Helvetica, Arial;
-    font-size: 1em;
-    background: rgb(255, 255, 255);
+    font-size: 0.8em;
     
     text-align: left;
 }
@@ -907,7 +889,7 @@ a.email {
 .rsvp-field input[type="submit"] {
     font-family: Helvetica, Arial;
     font-size: 1em;
-    font-weight: bold;
+    padding: 2px 5px;
 }
 
 #rsvp-text {
@@ -924,18 +906,40 @@ a.email {
 .rsvp-field {
 	display: inline-block;
 	width: 58%;
-	margin-bottom: 10px;
 }
 
 .rsvp-field input[type="text"],
-.rsvp-field textarea{
+.rsvp-field input[type="number"],
+.rsvp-field textarea {
 	width: 75%;
     font-family: Helvetica, Arial;
     font-weight: normal;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+    border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+     -moz-transition: border linear .2s, box-shadow linear .2s;
+       -o-transition: border linear .2s, box-shadow linear .2s;
+          transition: border linear .2s, box-shadow linear .2s;
+}
+
+.rsvp-field input[type="radio"] {
+	cursor: pointer;
+	margin-top: 4px;
 }
 
 .rsvp-field textarea {
 	height: 250px;
+}
+
+.rsvp-choice {
+	list-style-type: none;
+	list-style-image: none;
+	list-style: none;
 }
 
 #rsvp-inquiry {
@@ -947,6 +951,15 @@ a.email {
 	color: blue;
 }
 
+#rsvp-bg-container {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #AEC6CF;
+}
+
 .wedding-party {
 	padding: 80px 0 30px 0;
 }
@@ -955,6 +968,30 @@ a.email {
     display: block;
     margin-top: 50px;
     color: black;
+}
+
+.accomodations {
+	padding: 40px 0 30px 0;
+}
+
+#accomodations-container {
+	color: black;
+    font-family: Helvetica, Arial, sans-serif;
+
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(255, 255, 255);
+    /* RGBa with 0.7 opacity */
+    background: rgba(255, 255, 255, 0.2);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000)";
 }
 
 #notfinished {

@@ -63,9 +63,9 @@ Tailored for Jonathan and Liana, by Jonathan
             </div>
 
             <div class="main-container">
-                <div id="wp-pictures" class="wedding-party wrapper clearfix">
+                <div id="wp-pictures" class="wedding-party wp-wrapper clearfix">
 
-                    <ul id="wp-container" class="tiles-wrap animated"></ul>
+                    <ul id="wp-container" class="tiles-wrap"></ul>
 
                     <div class="clearfix"></div>
 
@@ -81,16 +81,25 @@ Tailored for Jonathan and Liana, by Jonathan
         		    container = '#wp-container',
         		    $container = $(container),
         		    tileCount = 6,
-        		    itemWidth = 320,
-        		    imgWidth = 310,
+        		    itemWidth = 330,
+        		    imgWidth = 320,
         		    wookmark;
         		    
-        		$container.append('<li class="tile-loading"><img src="../img/wp/cinquina.jpg"><p>Chantal Battison</p></li>');
-        		$container.append('<li class="tile-loading"><img src="../img/wp/brigitte.jpg"><p>Brigitte Patenaude</p></li>');
-        		$container.append('<li class="tile-loading"><img src="../img/wp/liz.jpg"><p>Elisabeth Levesque-Mumford</p></li>');
-        		$container.append('<li class="tile-loading"><img src="../img/wp/alink.jpg"><p>Aleksandra Diotte</p></li>');
-        		$container.append('<li class="tile-loading"><img src="../img/wp/helena.jpg"><p>Helene Campbell</p></li>');
-        		$container.append('<li class="tile-loading"><img src="../img/wp/zab.jpg"><p>Isabella Pace</p></li>');
+        		$container.append('<li class="tile-loading chantal"><img src="../img/wp/cinquina.jpg"</li>');
+        		$container.append('<li class="tile-loading brigitte"><img src="../img/wp/brigitte.jpg"></li>');
+        		$container.append('<li class="tile-loading benoit"><img src="../img/wp/bmarch.jpg"></li>');
+        		$container.append('<li class="tile-loading philip"><img src="../img/wp/prince.jpg"></li>');
+        		$container.append('<li class="tile-loading stephanie"><img src="../img/wp/phanny.jpg"></li>');
+        		$container.append('<li class="tile-loading elisabeth"><img src="../img/wp/liz2.jpg"></li>');
+        		$container.append('<li class="tile-loading louie"><img src="../img/wp/louu.jpg"></li>');
+        		$container.append('<li class="tile-loading paolo"><img src="../img/wp/paul.jpg"></li>');
+        		$container.append('<li class="tile-loading vanessa"><img src="../img/wp/vanvan.jpg"></li>');
+        		$container.append('<li class="tile-loading helene"><img src="../img/wp/helena.jpg"></li>');
+        		/*$container.append('<li class="tile-loading isabella"><img src="../img/wp/zab.jpg"></li>');*/
+        		$container.append('<li class="tile-loading alexandre"><img src="../img/wp/rieeel2.jpg"></li>');
+        		$container.append('<li class="tile-loading ryan"><img src="../img/wp/ryry.jpg"></li>');
+        		$container.append('<li class="tile-loading david"><img src="../img/wp/david.jpg"></li>');
+        		$container.append('<li class="tile-loading aleksandra"><img src="../img/wp/alink.jpg"></li>');
         		
         		$("#wp-container").find("img").each(function(index) {
         			this.onload = function() {
@@ -105,8 +114,7 @@ Tailored for Jonathan and Liana, by Jonathan
         			autoResize: true,
         			offset: 5,
         			outerOffset: 10,
-        			itemWidth: itemWidth,
-        			fillEmptySpace: true
+        			itemWidth: itemWidth
         		});
         		
         		$container.imagesLoaded()
