@@ -139,6 +139,8 @@ body {
     color: black;
 }
 #introtext {
+    position: absolute;
+    
     display: block;
     padding: 10px 0 10px 0;
     /*background: white;*/
@@ -311,6 +313,12 @@ section h2 {
     font-size: 1em;
     line-height: 145%;
     padding: 0;
+}
+#introtext {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
 }
 
 /* ==========================================================================
@@ -557,6 +565,12 @@ section h2 {
         width: 100%;
     }
 
+	#introtext {
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    bottom: 100px;
+	}
 }
 
 /* ==========================================================================
@@ -860,6 +874,16 @@ a.email {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
+}
+
+/* home page */
+#home-bg-container {
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 /* RSVP Section */
