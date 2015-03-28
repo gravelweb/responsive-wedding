@@ -117,30 +117,9 @@ if(count($missing_params) == 0 and count($bad_param_values) == 0) {
 Initial work by Bradley Greenwood (http://scal.io).
 Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
- 
-        <div id="bg-image">
-            <img src="../img/liana-flower.png" alt="bg" />
-        </div>
 
-        <div id="bg-container">
-
-            <div class="header-container sticky">
-                <div id="heading" class="wrapper clearfix">
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="../thecouple">THE COUPLE</a></li>
-                            <li><a href="../theweddingparty">THE WEDDING PARTY</a></li>
-                            <li><a href="../thebigday">THE BIG DAY</a></li>
-                            <li><a href="../accommodations">ACCOMMODATIONS</a></li>
-                            <li><a href="../registry">REGISTRY</a></li>
-                            <li><a href="../rsvp">RSVP</a></li>
-                        </ul>
-
-                    </nav>
-                </div>
-            </div>
-
-            <div class="main-container">
+        <div id="rsvp-bg-container">
+            <div class="rsvp-container">
                 <div class="rsvp wrapper clearfix">
                     
                     <div id="rsvp-text">
