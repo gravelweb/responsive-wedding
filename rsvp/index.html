@@ -37,14 +37,13 @@
 Initial work by Bradley Greenwood (http://scal.io).
 Tailored for Jonathan and Liana, by Jonathan
 ****************************************************************************************************-->
- 
-        <div id="bg-image">
-            <img src="../img/bg-pic.jpg" alt="bg" />
-        </div>
 
+        <!--div id="bg-image">
+            <img src="../img/texpaper.jpg" alt="bg" />
+        </div-->
+        
         <div id="bg-container">
-
-            <div class="header-container sticky">
+        	<div class="header-container sticky">
                 <div id="heading" class="wrapper clearfix">
                     <nav id="nav">
                         <ul>
@@ -53,50 +52,71 @@ Tailored for Jonathan and Liana, by Jonathan
                             <li><a href="../thewhereandwhen">THE WHERE AND WHEN</a></li>
                             <li><a href="../accommodations">ACCOMMODATIONS</a></li>
                             <li><a href="../registry">REGISTRY</a></li>
-                            <li><a href="../rsvp">RSVP</a></li>
+                            <li><a class="selected" href="../rsvp">RSVP</a></li>
                         </ul>
 
                     </nav>
                 </div>
             </div>
-
-            <div class="main-container">
-                <div class="rsvp wrapper clearfix">
+            
+            <div class="rsvp-container">
+                <div class="rsvp rsvp-wrapper clearfix">
                     
                     <div id="rsvp-text">
-                    	<div id="rsvp-form-header">Please fill out the info below:</div>
+                    	<div id="rsvp-form-header"><img src="../img/rsvp-label.png" width="80%"/></div>
+                    	<div id="rsvp-invite-only">
+                    
+                    	</div>
                         <form id="rsvp-form" action="rsvpd.php" method="post">
                             <div class="rsvp-label">Name(s)</div>
                             <div class="rsvp-field"><input type="text" name="names" value=""></div>
                             
-                            <div class="rsvp-label">Can you join us?</div>
+                            <div class="rsvp-label">Will you be able to join us?</div>
                             <div class="rsvp-field">
-                            	<input type="radio" name="rsvp" value="Yes"> So there!<br/>
-                            	<input type="radio" name="rsvp" value="No"> Can't make it!
+                            	<ul>
+	                            	<li>
+		                            	<input type="radio" name="rsvp" id="choice-rsvp-yes" value="yes">
+		                            	<label for="choice-rsvp-yes">I'll be there!</label>
+	                            	</li>
+	                            	<li>
+	                            		<input type="radio" name="rsvp" id="choice-rsvp-no" value="no">
+		                            	<label for="choice-rsvp-no">Regretfully, I cannot attend.</label>
+	                            	</li>
+	                            </ul>
                             </div>
                             
-                            <div class="rsvp-label">No. Adults</div>
-                            <div class="rsvp-field"><input type="text" name="no-adults" value=""></div>
+                            <div class="rsvp-label">No. of adults in your party</div>
+                            <div class="rsvp-field"><input type="number" name="no-adults" value=""></div>
                             
-                            <div class="rsvp-label">No. Children</div>
-                            <div class="rsvp-field"><input type="text" name="no-children" value=""></div>
+                            <div class="rsvp-label">No. of children in your party</div>
+                            <div class="rsvp-field"><input type="number" name="no-children" value=""></div>
                             
-                            <div class="rsvp-label">Dietary Restrictions</div>
+                            <div class="rsvp-label">Dietary restrictions</div>
                             <div class="rsvp-field"><input type="text" name="diet" value=""></div>
                             
-                            <div class="rsvp-label">Do you plan to stay at the 'blah blah blah'?</div>
+                            <div class="rsvp-label">Meal options</div>
                             <div class="rsvp-field">
-                            	<input type="radio" name="hotel" value="Yes"> Yes<br/>
-                            	<input type="radio" name="hotel" value="No"> No<br/>
-                            	<input type="radio" name="hotel" value="Haven't decided"> Haven't decided<br/>
-                            </div>
-
+                            	<ul>
+	                            	<li>
+		                            	<input type="radio" name="food" id="choice-food-ribs" value="ribs">
+		                            	<label for="choice-food-ribs">Braised Short Ribs</label>
+	                            	</li>
+	                            	<li>
+	                            		<input type="radio" name="food" id="choice-food-chicken" value="chicken">
+		                            	<label for="choice-food-chicken">Fancy Chicken Name</label>
+	                            	</li>
+	                            	<li>
+	                            		<input type="radio" name="food" id="choice-food-veggie" value="veggie">
+		                            	<label for="choice-food-veggie">Butternut Ravioli on a Plate of Dreams</label>
+	                            	</li>
+	                            </ul>
+							</div>
                             <div class="rsvp-label">Comments! Song Requests! Inquiries!</div>
                             <div class="rsvp-field">
                             	<textarea name="comments" form="rsvp-form"></textarea>
                             </div>
                                                   
-                            <div class="rsvp-label">Email Address</div>
+                            <div class="rsvp-label">Email address</div>
                             <div class="rsvp-field"><input type="text" name="email" value=""></div>
 
                             <div class="rsvp-field"><input type="submit" value="Submit"></div>
@@ -108,6 +128,7 @@ Tailored for Jonathan and Liana, by Jonathan
 
                 </div> <!-- #main -->
             </div> <!-- #main-container -->
+            <div class="clearfix"></div>
         </div> <!-- #bg-container -->
 
         <script src="/js/main-1.6.js"></script>
