@@ -44,6 +44,12 @@ if ($submitted) {
 	if(required_field('names', 'Name(s)')) {
 		$names = $_POST['names'];
 	}
+	if(required_field('rsvp', 'Will you be able to join us?')) {
+		$rsvp = $_POST['rsvp'];
+	}
+	if(required_field('no-adults', 'No. of adults in your party')) {
+		$no_adults = $_POST['no-adults'];
+	}
 	if(required_field('email', 'Email address')) {
 		$email = $_POST['email'];
 		$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -52,21 +58,12 @@ if ($submitted) {
 	    	$missing_params[] = 'email';
 		}
 	}
-	if(required_field('rsvp', 'Will you be able to join us?')) {
-		$rsvp = $_POST['rsvp'];
-	}
 	
 	if ($rsvp == "no") {
-		if(isset($_POST['no-adults'])) {
-			$no_adults = $_POST['no-adults'];
-		}
 		if(isset($_POST['food'])) {
 			$food = $_POST['food'];
 		} 
 	} else {
-		if(required_field('no-adults', 'No. of adults in your party')) {
-			$no_adults = $_POST['no-adults'];
-		}
 		if(required_field('food', 'Meal option')) {
 			$food = $_POST['food'];
 		}
