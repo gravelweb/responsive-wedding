@@ -8,10 +8,10 @@ $submitted = isset($_POST['submitted']);
 $names = "";
 $rsvp = "";
 $no_adults = "";
-$no_children = "";
 $food = "";
 $email = "";
 # fields optional
+$no_children = "";
 $diet = "";
 $comments = "";
 
@@ -49,9 +49,6 @@ if ($submitted) {
 	if(required_field('no-adults', 'No. of adults in your party')) {
 		$no_adults = $_POST['no-adults'];
 	}
-	if(required_field('no-children', 'No. of children in your party')) {
-		$no_children = $_POST['no-children'];
-	}
 	if(required_field('food', 'Meal option')) {
 		$food = $_POST['food'];
 	}
@@ -64,6 +61,9 @@ if ($submitted) {
 		}
 	}
 	
+	if(isset($_POST['no-children'])) {
+		$no_children = $_POST['no-children'];
+	}
 	if (isset($_POST['diet'])) {
 		$diet = $_POST['diet'];
 	}
@@ -203,7 +203,7 @@ Tailored by Jonathan and Liana
                             <div class="rsvp-label <?php is_missing('no-adults') ?>">No. of adults in your party *</div>
                             <div class="rsvp-field"><input type="number" name="no-adults" value="<?php echo $no_adults ?>"></div>
                             
-                            <div class="rsvp-label <?php is_missing('no-children') ?>">No. of children in your party *</div>
+                            <div class="rsvp-label">No. of children in your party</div>
                             <div class="rsvp-field"><input type="number" name="no-children" value="<?php echo $no_children ?>"></div>
                             
                             <div class="rsvp-label">Dietary restrictions</div>
