@@ -315,6 +315,26 @@ section h2 {
     overflow: auto;
 }
 
+.accomodations a {
+	color: #c1cfa2;
+}
+
+.accomodations li,
+.rsvp-field li {
+	list-style-type: none;
+	list-style-image: none;
+	list-style: none;
+}
+
+.accomodations ul {
+	margin: 0;
+}
+
+.rsvp-field ul {
+	padding-left: 0;
+	margin: 0;
+}
+
 /* wedding party */
 .wedding-party {
 	padding: 80px 0 30px 0;
