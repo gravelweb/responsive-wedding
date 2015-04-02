@@ -183,10 +183,10 @@ Tailored by Jonathan and Liana
                     	</div>
                         <form id="rsvp-form" action="index.php" method="post">
                         	<input type="hidden" name="submitted" value="true"/>
-                            <div class="rsvp-label <?php is_missing('names') ?>">Name(s)</div>
+                            <div class="rsvp-label <?php is_missing('names') ?>">Name(s) *</div>
                             <div class="rsvp-field"><input type="text" name="names" value="<?php echo $names ?>"></div>
                             
-                            <div class="rsvp-label <?php is_missing('rsvp') ?>">Will you be able to join us?</div>
+                            <div class="rsvp-label <?php is_missing('rsvp') ?>">Will you be able to join us? *</div>
                             <div class="rsvp-field">
                             	<ul>
 	                            	<li>
@@ -200,16 +200,16 @@ Tailored by Jonathan and Liana
 	                            </ul>
                             </div>
                             
-                            <div class="rsvp-label <?php is_missing('no-adults') ?>">No. of adults in your party</div>
+                            <div class="rsvp-label <?php is_missing('no-adults') ?>">No. of adults in your party *</div>
                             <div class="rsvp-field"><input type="number" name="no-adults" value="<?php echo $no_adults ?>"></div>
                             
-                            <div class="rsvp-label <?php is_missing('no-children') ?>">No. of children in your party</div>
+                            <div class="rsvp-label <?php is_missing('no-children') ?>">No. of children in your party *</div>
                             <div class="rsvp-field"><input type="number" name="no-children" value="<?php echo $no_children ?>"></div>
                             
                             <div class="rsvp-label">Dietary restrictions</div>
                             <div class="rsvp-field"><input type="text" name="diet" value="<?php echo $diet ?>"></div>
                             
-                            <div class="rsvp-label <?php is_missing('food') ?>">Meal option</div>
+                            <div class="rsvp-label <?php is_missing('food') ?>">Meal option *</div>
                             <div class="rsvp-field">
                             	<ul>
 	                            	<li>
@@ -231,7 +231,7 @@ Tailored by Jonathan and Liana
                             	<textarea name="comments" form="rsvp-form"></textarea>
                             </div>
                                                   
-                            <div class="rsvp-label <?php is_missing('email') ?>">Email address</div>
+                            <div class="rsvp-label <?php is_missing('email') ?>">Email address *</div>
                             <div class="rsvp-field"><input type="text" name="email" value="<?php echo $email ?>"></div>
 
                             <div class="rsvp-field"><input type="submit" value="Submit"></div>
