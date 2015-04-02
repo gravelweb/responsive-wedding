@@ -228,7 +228,7 @@ Tailored by Jonathan and Liana
 							</div>
                             <div class="rsvp-label">Comments! Song Requests! Inquiries!</div>
                             <div class="rsvp-field">
-                            	<textarea name="comments" form="rsvp-form"></textarea>
+                            	<textarea name="comments" form="rsvp-form"><?php echo $comments ?></textarea>
                             </div>
                                                   
                             <div class="rsvp-label <?php is_missing('email') ?>">Email address *</div>
