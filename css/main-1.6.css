@@ -167,6 +167,7 @@ nav ul {
     font-weight: normal;
     margin: 0;
     padding: 0;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 nav a {
@@ -356,11 +357,25 @@ section h2 {
 	text-align: center;
 }
 
-#rsvp-invite-only {
+#rsvp-error {
 	font-size: 1em;
 	font-weight: bold;
 	padding-bottom: 20px;
 	text-align: center;
+}
+
+#rsvp-error ul {
+	padding: 0;
+}
+
+.rsvp-email {
+	color: #cc0000;
+}
+
+#rsvp-error li {
+	list-style-type: none;
+	list-style-image: none;
+	list-style: none;
 }
 
 #rsvp-text {
@@ -391,6 +406,10 @@ section h2 {
 	padding-right: 9%
 	vertical-align: top;
 	line-height: 2;
+}
+
+.rsvp-missing {
+	color: red;
 }
 
 .rsvp-field {
@@ -425,17 +444,6 @@ section h2 {
 
 .rsvp-field textarea {
 	height: 150px;
-}
-
-.rsvp-field ul {
-	padding-left: 0;
-	margin: 0;
-}
-
-.rsvp-field li {
-	list-style-type: none;
-	list-style-image: none;
-	list-style: none;
 }
 
 #rsvp-inquiry {
@@ -877,10 +885,21 @@ section h2 {
     font-family: 'futura_ltbook';
     src: url('futuralt-book-webfont.eot');
     src: url('futuralt-book-webfont.eot?#iefix') format('embedded-opentype'),
-         url('futuralt-book-webfont.woff') format('woff'),
+         url('futuralt-book-webfont.woff') format('woff'),	
          url('futuralt-book-webfont.ttf') format('truetype'),
          url('futuralt-book-webfont.svg#futura_ltbook') format('svg');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura_ltbook';
+    src: url('futuralt-book-webfont.eot');
+    src: url('futuralt-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('futuralt-book-webfont.woff') format('woff'),	
+         url('futuralt-book-webfont.ttf') format('truetype'),
+         url('futuralt-book-webfont.svg#futura_ltbook') format('svg');
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -1028,6 +1047,13 @@ a.email {
 
 .accomodations {
 	padding: 40px 0 30px 0;
+}
+
+.accomodations-update {
+	font-size: 0.6em;
+	font-style: italic;
+	font-family: Helvetica, Arial, Sans-Serif;
+	line-height: 60%;
 }
 
 #accomodations-container {
