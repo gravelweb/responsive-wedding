@@ -42,7 +42,6 @@ Tailored for Jonathan and Liana, by Jonathan
         <!--div id="bg-image">
             <img src="../img/bg-pic.jpg" alt="bg" />
         </div-->
-        <div class="progress-bar"></div>
 
         <div id="bg-container">
 
@@ -66,7 +65,7 @@ Tailored for Jonathan and Liana, by Jonathan
                 <div class="wedding-party wp-wrapper clearfix">
                 	
                 	<div id="wp-pictures">
-                    	<ul id="wp-container" class="tiles-wrap"></ul>
+                    	<ul id="wp-container" class="tiles-wrap animated"></ul>
                 	</div>
 
                     <div class="clearfix"></div>
@@ -80,7 +79,6 @@ Tailored for Jonathan and Liana, by Jonathan
         <script>
         	(function ($){
         		var loadedImages = 0,
-        		    $progressBar = $('.progress-bar'),
         		    container = '#wp-container',
         		    $container = $(container),
         		    tileCount = 6,
@@ -92,12 +90,12 @@ Tailored for Jonathan and Liana, by Jonathan
         		$container.append('<li class="tile-loading brigitte"><img src="../img/wp/brigitte.jpg"></li>');
         		$container.append('<li class="tile-loading benoit"><img src="../img/wp/bmarch.jpg"></li>');
         		$container.append('<li class="tile-loading philip"><img src="../img/wp/prince.jpg"></li>');
+        		$container.append('<li class="tile-loading isabella"><img src="../img/wp/zab.jpg"></li>');
         		$container.append('<li class="tile-loading stephanie"><img src="../img/wp/phanny.jpg"></li>');
         		$container.append('<li class="tile-loading elisabeth"><img src="../img/wp/liz2.jpg"></li>');
         		$container.append('<li class="tile-loading louie"><img src="../img/wp/louu.jpg"></li>');
         		$container.append('<li class="tile-loading paolo"><img src="../img/wp/paul.jpg"></li>');
         		$container.append('<li class="tile-loading helene"><img src="../img/wp/helena.jpg"></li>');
-        		$container.append('<li class="tile-loading isabella"><img src="../img/wp/zab.jpg"></li>');
         		$container.append('<li class="tile-loading ryan"><img src="../img/wp/ryry.jpg"></li>');
         		$container.append('<li class="tile-loading alexandre"><img src="../img/wp/rieeel2.jpg"></li>');
         		$container.append('<li class="tile-loading vanessa"><img src="../img/wp/vanvan.jpg"></li>');
@@ -121,12 +119,8 @@ Tailored for Jonathan and Liana, by Jonathan
         		});
         		
         		$container.imagesLoaded()
-        		    .always(function() {
-        		    	$progressBar.hide();
-        		    })
         		    .progress(function (instance, image) {
         		    	$(image.img).closest('li').removeClass('tile-loading');
-        		    	$progressBar.css('width', (++loadedImages / tileCount * 100) + '%');
         		    	wookmark.updateOptions();
         		    });
         	})(jQuery);

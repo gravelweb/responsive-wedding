@@ -128,6 +128,7 @@ a {
   right: 0;
   top: 0;
   bottom: 0;
+  height: 100px;
   background-color: #ddd;
   content: "Loading\2026";
   padding-top: 20px;

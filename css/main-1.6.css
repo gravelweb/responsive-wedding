@@ -140,18 +140,72 @@ body {
 }
 #introtext {
     position: absolute;
-    
+
     display: block;
     padding: 10px 0 10px 0;
     /*background: white;*/
-    
+
     /*color: #6CA061;*/
     color: black;
 }
 
-#introtext .jonathanandliana {
+#introtext .head-jonathan,
+#introtext .head-liana {
+    font-family: "Brain Flower", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2em;
     line-height: 100%;
+    color: #333;
+}
+
+#introtext .amp {
+    position: relative;
+    top: 19px;
+    margin-left: -20px;
+    font-size: 0.7em;
+}
+
+#introtext .date {
+    margin-top: 10px;
+    font-family: "toe", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 1em;
+    color: #444;
+}
+
+#notfinished {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+
+    text-align: center;
+}
+
+#notfinished div {
+    display: inline-block;
+
+    width: 200px;
+    font-size: 0.7em;
+    padding: 10px 0 10px 0;
+    /*background: white;*/
+
+    /*color: #6CA061;*/
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+
+    /* Fallback for web browsers that doesn't support RGBa */
+    background: rgb(255, 255, 255);
+    /* RGBa with 0.7 opacity */
+    background: rgba(255, 255, 255, 0.2);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000)";
 }
 
 /* ==============
@@ -232,14 +286,14 @@ body {
 #bg-image {
     position: fixed; 
     top: -50%; 
-    left: -50%; 
+    right: -50%; 
     width: 200%; 
     height: 200%;
 }
 #bg-image img {
     position: absolute; 
     top: 0; 
-    left: 0; 
+    left: 0;
     right: 0; 
     bottom: 0; 
     margin: auto; 
@@ -277,14 +331,20 @@ section {
 
 section h1 {
 
-    font-family: "EdwardianScrAltITCTT", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Brain Flower", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2.6em;
 
 }
 section h2 {
-    font-size: 1.1em;
+    font-family: "toe", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 3em;
     line-height: 120%;
     padding: 0 0px;
+    margin: 0 0;
+}
+
+section strong {
+    font-family: "toe", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
 .column {
@@ -303,6 +363,10 @@ section h2 {
     left: 0;
     right: 0;
     bottom: 10px;
+}
+
+#introtext img {
+    width: 250px;
 }
 
 
@@ -380,7 +444,7 @@ section h2 {
 
 #rsvp-text {
     color: black;
-    font-size: 0.8em;
+    font-size: 0.6em;
     
     background: white;
     
@@ -477,6 +541,11 @@ section h2 {
 	    color: black;
 	}
 	
+
+#notfinished div {
+    width: 400px;
+    font-size: 1em;
+}
 /* ====================
     INTERMEDIATE: Menu
    ==================== */
@@ -500,6 +569,10 @@ section h2 {
         animation:thedrop 1s 1;
         -moz-animation:thedrop 1s 1;
         -webkit-animation:thedrop 1s 1;
+    }
+
+    #introtext img {
+        width: 400px;
     }
 
     #introtext {
@@ -573,7 +646,7 @@ section h2 {
         font-size: 3.1em;
     }
     section h2 {
-        font-size: 1.7em;
+        font-size: 4em;
     }
     
     /* RSVP Section */
@@ -586,6 +659,9 @@ section h2 {
 	    margin: 0 auto;
 	}
 
+    #rsvp-text {
+        font-size: 0.8em;
+    }
 
     .column p {
         font-size: 1.1em;
@@ -657,7 +733,6 @@ section h2 {
     }
 }
 @media only screen and (min-width: 900px) {
-
     section h1,
     section h2 {
         padding: 0 20px;
@@ -680,7 +755,6 @@ section h2 {
         line-height: 145%;
         padding: 0 20px;
     }  
-
 }
 
 
@@ -729,6 +803,18 @@ section h2 {
 	    right: 0;
 	    bottom: 100px;
 	}
+}
+
+@media only screen and (min-width: 1440px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wp-wrapper {
+        width: 1400px;
+        margin: 0 auto;
+    }
 }
 
 /* ==========================================================================
@@ -971,7 +1057,22 @@ section h2 {
 
 @font-face {
         font-family: 'Brain Flower';
-        src: url('brain-flower.ttf') format('truetype');
+        src: url('brain-flower.eot');
+        src: url('brain-flower.eot?#iefix') format('embedded-opentype'),
+                 url('brain-flower.woff') format('woff'),
+                 url('brain-flower.ttf') format('truetype'),
+                 url('brain-flower.svg#brain-flower') format('svg');
+        font-weight: normal;
+        font-style: normal;
+}
+
+@font-face {
+        font-family: 'toe';
+        src: url('toe.eot');
+        src: url('toe.eot?#iefix') format('embedded-opentype'),
+                 url('toe.woff') format('woff'),
+                 url('toe.ttf') format('truetype'),
+                 url('toe.svg#toe') format('svg');
         font-weight: normal;
         font-style: normal;
 }
@@ -1058,31 +1159,6 @@ a.email {
 
 #accomodations-container {
 	color: black;
-    font-family: Helvetica, Arial, sans-serif;
-
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-
-    /* Fallback for web browsers that doesn't support RGBa */
-    background: rgb(255, 255, 255);
-    /* RGBa with 0.7 opacity */
-    background: rgba(255, 255, 255, 0.2);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000, endColorstr=#B2000000)";
-}
-
-#notfinished {
-    display: block;
-    padding: 10px 0 10px 0;
-    /*background: white;*/
-    
-    /*color: #6CA061;*/
-    color: black;
     font-family: Helvetica, Arial, sans-serif;
 
     -ms-border-radius: 8px;

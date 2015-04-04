@@ -285,11 +285,11 @@ Tailored by Jonathan and Liana
 	                            	</li>
 	                            	<li>
 	                            		<input type="radio" name="meal<?php echo $i ?>" id="choice-food-chicken<?php echo $i ?>" value="chicken" <?php is_checked($meals[$i], 'chicken') ?>>
-		                            	<label for="choice-food-chicken">Fancy Chicken Name</label>
+		                            	<label for="choice-food-chicken">Rustic Roasted Chicken</label>
 	                            	</li>
 	                            	<li>
 	                            		<input type="radio" name="meal<?php echo $i ?>" id="choice-food-veggie<?php echo $i ?>" value="veggie" <?php is_checked($meals[$i], 'veggie') ?>>
-		                            	<label for="choice-food-veggie">Butternut Ravioli on a Plate of Dreams</label>
+		                            	<label for="choice-food-veggie">Butternut Squash Ravioli</label>
 	                            	</li>
 	                            </ul>
 	                        </div>
@@ -300,7 +300,7 @@ Tailored by Jonathan and Liana
                         </form>
                         <?php
 							} else {
-                        		echo "<div id=\"rsvp-error\">Thanks so much for filling out all that information! We'll be in touch soon :)</div>";
+                        		echo "<div id=\"rsvp-error\">Thank you! :)</div>";
 							}
 						?>
                         <div id="rsvp-inquiry">Inquiry? Email us! <a href="mailto:jonathandliana.rsvp@gmail.com?subject=RSVP Inquiry">jonathandliana.rsvp@gmail.com</a></div>
@@ -312,8 +312,6 @@ Tailored by Jonathan and Liana
             </div> <!-- #main-container -->
             <div class="clearfix"></div>
         </div> <!-- #bg-container -->
-
-        <script src="/js/main-1.6.js"></script>
 
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
