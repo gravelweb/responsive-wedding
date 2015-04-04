@@ -107,12 +107,15 @@ if ($submitted_rsvp) {
 			$email_message .= "<div>Comments:\n".clean_string($comments)."</div>";
 		}
 	} else {
+                $food_details = '';
 		for ($i = 1; $i <= $no_adults; $i++) {
 			if(required_field('guest'.$i, $missing_params_2)) {
 				$guests[$i] = $_POST['guest'.$i];
+                                $food_details .= '<br />'.clean_string($guests[$i]).' wants: ';
 			}
 			if(required_field('meal'.$i, $missing_params_2)) {
 				$meals[$i] = $_POST['meal'.$i];
+                                $food_details .= clean_string($meals[$i]);
 			}
 		}
 
@@ -121,7 +124,7 @@ if ($submitted_rsvp) {
 			
 			$email_message .= "<div>Who: ".clean_string($names)."</div>";
 			$email_message .= "<div>Email: ".clean_string($email)."</div>";
-			$email_message .= "<div>Food options: not defined</div>";
+			$email_message .= "<div>Food options: ".$food_details."</div>";
 		}
 	}
 
