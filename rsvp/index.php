@@ -1,14 +1,15 @@
 <?php
 
-$missing_params = array();
 $bad_param_values = array();
-$submitted = isset($_POST['submitted']);
+$missing_params_1 = array();
+$missing_params_2 = array();
+$submitted_rsvp = isset($_POST['submitted_rsvp']);
+$submitted_food = isset($_POST['submitted_food']);
 
 # fields required
 $names = "";
 $rsvp = "";
 $no_adults = "";
-$food = "";
 $email = "";
 # fields optional
 $no_children = "";
@@ -22,81 +23,109 @@ function is_checked($field, $value) {
 }
 
 function is_missing($field_name) {
-	global $missing_params;
-	if (in_array($field_name, $missing_params)) {
+	global $missing_params_1;
+	global $missing_params_2;
+	if (in_array($field_name, $missing_params_1)) {
+		echo "rsvp-missing";
+	} elseif (in_array($field_name, $missing_params_2)) {
 		echo "rsvp-missing";
 	}
 }
- 
-if ($submitted) {
+
+if ($submitted_rsvp) {
 	$email_to = "jonathanandliana.rsvp@gmail.com";
 	 
-	function required_field($field, $formal_name) {
+	function required_field($field, &$array) {
 		if(empty($_POST[$field])) {
-			global $missing_params;
-	    	$missing_params[] = $field;
+	    	$array[] = $field;
 			return FALSE;
 	    }
 		return TRUE;
 	}
 	
+	function clean_string($string) {
+	    $bad = array("content-type","bcc:","to:","cc:","href");
+		return str_replace($bad,"",$string);
+	}
 	
-	if(required_field('names', 'Name(s)')) {
+	if(required_field('names', $missing_params_1)) {
 		$names = $_POST['names'];
 	}
-	if(required_field('rsvp', 'Will you be able to join us?')) {
-		$rsvp = $_POST['rsvp'];
-	}
-	if(required_field('no-adults', 'No. of adults in your party')) {
+	
+	$meals = array();
+	$guests = array();
+	
+	if(required_field('no-adults', $missing_params_1)) {
 		$no_adults = $_POST['no-adults'];
+		$no_adults_exp = '/^[0-9]+$/';
+		if(!preg_match($no_adults_exp,$no_adults)) {
+		    $bad_param_values[] = 'Number of adults in your party needs to be a number!';
+	    	$missing_params_1[] = 'no-adults';
+		} else {
+			for ($i = 1; $i <= $no_adults; $i++) {
+				$guests[$i] = '';
+				$meals[$i] = '';
+			}
+		}
 	}
-	if(required_field('email', 'Email address')) {
+	
+	if(required_field('email', $missing_params_1)) {
 		$email = $_POST['email'];
 		$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 		if(!preg_match($email_exp,$email)) {
 		    $bad_param_values[] = 'Sorry! <span class="rsvp-email">'. $email ."</span> doesn't look like a valid email address!";
-	    	$missing_params[] = 'email';
+	    	$missing_params_1[] = 'email';
 		}
 	}
-	
-	if ($rsvp == "no") {
-		if(isset($_POST['food'])) {
-			$food = $_POST['food'];
-		} 
+
+	if(required_field('rsvp', $missing_params_1)) {
+		$rsvp = $_POST['rsvp'];
+	}
+
+	if (! $submitted_food) {
+			
+		if(isset($_POST['no-children'])) {
+			$no_children = $_POST['no-children'];
+		}
+		if (isset($_POST['diet'])) {
+			$diet = $_POST['diet'];
+		}
+		if (isset($_POST['comments'])) {
+			$comments = $_POST['comments'];
+		}
+		
+		if(count($missing_params_1) == 0) {
+		
+			$email_message = "RSVP details below.\n\n";
+			 
+			$email_message .= "<div>Who: ".clean_string($names)."</div>";
+			$email_message .= "<div>Email: ".clean_string($email)."</div>";
+			$email_message .= "<div>RSVP: ".clean_string($rsvp)."</div>";
+			$email_message .= "<div>Number of adults: ".clean_string($no_adults)."</div>";
+			$email_message .= "<div>Number of children: ".clean_string($no_children)."</div>";
+			$email_message .= "<div>Dietary restrictions: ".clean_string($diet)."</div>";
+			$email_message .= "<div>Comments:\n".clean_string($comments)."</div>";
+		}
 	} else {
-		if(required_field('food', 'Meal option')) {
-			$food = $_POST['food'];
+		for ($i = 1; $i <= $no_adults; $i++) {
+			if(required_field('guest'.$i, $missing_params_2)) {
+				$guests[$i] = $_POST['guest'.$i];
+			}
+			if(required_field('meal'.$i, $missing_params_2)) {
+				$meals[$i] = $_POST['meal'.$i];
+			}
+		}
+
+		if(count($missing_params_2) == 0) {
+			$email_message = "Food details below.\n\n";
+			
+			$email_message .= "<div>Who: ".clean_string($names)."</div>";
+			$email_message .= "<div>Email: ".clean_string($email)."</div>";
+			$email_message .= "<div>Food options: not defined</div>";
 		}
 	}
-		
-	if(isset($_POST['no-children'])) {
-		$no_children = $_POST['no-children'];
-	}
-	if (isset($_POST['diet'])) {
-		$diet = $_POST['diet'];
-	}
-	if (isset($_POST['comments'])) {
-		$comments = $_POST['comments'];
-	}
-	
-	if(count($missing_params) == 0 and count($bad_param_values) == 0) {
-	
-		$email_message = "Form details below.\n\n";
-		
-		function clean_string($string) {
-		    $bad = array("content-type","bcc:","to:","cc:","href");
-			return str_replace($bad,"",$string);
-		}
-		 
-		$email_message .= "<div>Who: ".clean_string($names)."</div>";
-		$email_message .= "<div>Email: ".clean_string($email)."</div>";
-		$email_message .= "<div>RSVP: ".clean_string($rsvp)."</div>";
-		$email_message .= "<div>Number of adults: ".clean_string($no_adults)."</div>";
-		$email_message .= "<div>Number of children: ".clean_string($no_children)."</div>";
-		$email_message .= "<div>Dietary restrictions: ".clean_string($diet)."</div>";
-		$email_message .= "<div>Food option: ".clean_string($food)."</div>";
-		$email_message .= "<div>Comments:\n".clean_string($comments)."</div>";
-		
+
+	if(count($missing_params_1) == 0 and count($missing_params_2) == 0) {
 		$email_subject = $names." RSVP'd!";
 		
 		// create email headers
@@ -178,19 +207,21 @@ Tailored by Jonathan and Liana
                     	<div id="rsvp-form-header"><img src="../img/rsvp-label.png" width="80%"/></div>
                     	<div id="rsvp-error">
                     	<?php
-                    		if (count($missing_params) > 0) {
+                    		if (count($missing_params_1) > 0 or count($missing_params_2) > 0) {
                     			echo "Looks like we're missing a bit more info! See below.<br/>";
 							}
 							if (count($bad_param_values) > 0) {
 								foreach($bad_param_values as $message) {
-									echo '('.$message.')';
+									echo '('.$message.')<br/>';
 								}
 							}
-							if(! $submitted or count($missing_params) > 0 or count($bad_param_values) > 0) {
 						?>
                     	</div>
+                    	<?php
+							if(! $submitted_rsvp or count($missing_params_1) > 0) {
+						?>
                         <form id="rsvp-form" action="index.php" method="post">
-                        	<input type="hidden" name="submitted" value="true"/>
+                        	<input type="hidden" name="submitted_rsvp" value="true"/>
                             <div class="rsvp-label <?php is_missing('names') ?>">Name(s) *</div>
                             <div class="rsvp-field"><input type="text" name="names" value="<?php echo $names ?>"></div>
                             
@@ -216,24 +247,6 @@ Tailored by Jonathan and Liana
                             
                             <div class="rsvp-label">Dietary restrictions</div>
                             <div class="rsvp-field"><input type="text" name="diet" value="<?php echo $diet ?>"></div>
-                            
-                            <div class="rsvp-label <?php is_missing('food') ?>">Meal option *</div>
-                            <div class="rsvp-field">
-                            	<ul>
-	                            	<li>
-		                            	<input type="radio" name="food" id="choice-food-ribs" value="ribs" <?php is_checked($food, 'ribs') ?>>
-		                            	<label for="choice-food-ribs">Braised Short Ribs</label>
-	                            	</li>
-	                            	<li>
-	                            		<input type="radio" name="food" id="choice-food-chicken" value="chicken" <?php is_checked($food, 'chicken') ?>>
-		                            	<label for="choice-food-chicken">Fancy Chicken Name</label>
-	                            	</li>
-	                            	<li>
-	                            		<input type="radio" name="food" id="choice-food-veggie" value="veggie" <?php is_checked($food, 'veggie') ?>>
-		                            	<label for="choice-food-veggie">Butternut Ravioli on a Plate of Dreams</label>
-	                            	</li>
-	                            </ul>
-							</div>
                             <div class="rsvp-label">Comments! Song Requests! Inquiries!</div>
                             <div class="rsvp-field">
                             	<textarea name="comments" form="rsvp-form"><?php echo $comments ?></textarea>
@@ -245,8 +258,46 @@ Tailored by Jonathan and Liana
                             <div class="rsvp-field"><input type="submit" value="Submit"></div>
                         </form>
                         <?php
+							} elseif($rsvp == "yes" and (! $submitted_food or count($missing_params_2) > 0)) {
+						?>
+                        <form id="food-form" action="index.php" method="post">
+                        	<input type="hidden" name="submitted_rsvp" value="true"/>
+                        	<input type="hidden" name="submitted_food" value="true"/>
+                            <input type="hidden" name="names" value="<?php echo $names ?>">
+                            <input type="hidden" name="email" value="<?php echo $email ?>">
+                            <input type="hidden" name="no-adults" value="<?php echo $no_adults ?>">
+                            <input type="hidden" name="rsvp" value="<?php echo $rsvp ?>">
+                        	<?php
+								for ($i = 1; $i <= $no_adults; $i++) {
+							?>
+							<div class="rsvp-label <?php is_missing('guest'.$i) ?>">Guest <?php echo $i ?></div>
+                            <div class="rsvp-field"><input type="text" name="guest<?php echo $i ?>" value="<?php echo $guests[$i] ?>"></div>
+                            
+                            <div class="rsvp-label <?php is_missing('meal'.$i) ?>">Meal option *</div>
+                            <div class="rsvp-field">
+                            	<ul>
+	                            	<li>
+		                            	<input type="radio" name="meal<?php echo $i ?>" id="choice-food-ribs<?php echo $i ?>" value="ribs" <?php is_checked($meals[$i], 'ribs') ?>>
+		                            	<label for="choice-food-ribs">Braised Short Ribs</label>
+	                            	</li>
+	                            	<li>
+	                            		<input type="radio" name="meal<?php echo $i ?>" id="choice-food-chicken<?php echo $i ?>" value="chicken" <?php is_checked($meals[$i], 'chicken') ?>>
+		                            	<label for="choice-food-chicken">Fancy Chicken Name</label>
+	                            	</li>
+	                            	<li>
+	                            		<input type="radio" name="meal<?php echo $i ?>" id="choice-food-veggie<?php echo $i ?>" value="veggie" <?php is_checked($meals[$i], 'veggie') ?>>
+		                            	<label for="choice-food-veggie">Butternut Ravioli on a Plate of Dreams</label>
+	                            	</li>
+	                            </ul>
+	                        </div>
+							<?php
+								}
+							?>
+                            <div class="rsvp-field"><input type="submit" value="Submit"></div>
+                        </form>
+                        <?php
 							} else {
-                        		echo "Thanks so much for filling out all that information! We'll be in touch soon :)";
+                        		echo "<div id=\"rsvp-error\">Thanks so much for filling out all that information! We'll be in touch soon :)</div>";
 							}
 						?>
                         <div id="rsvp-inquiry">Inquiry? Email us! <a href="mailto:jonathandliana.rsvp@gmail.com?subject=RSVP Inquiry">jonathandliana.rsvp@gmail.com</a></div>
