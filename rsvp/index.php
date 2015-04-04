@@ -211,7 +211,7 @@ Tailored by Jonathan and Liana
                     	<div id="rsvp-error">
                     	<?php
                     		if (count($missing_params_1) > 0 or count($missing_params_2) > 0) {
-                    			echo "Looks like we're missing a bit more info! See below.<br/>";
+                    			echo "Looks like we're missing some info! See below.<br/>";
 							}
 							if (count($bad_param_values) > 0) {
 								foreach($bad_param_values as $message) {
