@@ -70,7 +70,7 @@ if ($submitted_rsvp) {
 	}
 	
 	if(required_field('email', $missing_params_1)) {
-		$email = $_POST['email'];
+		$email = trim($_POST['email']);
 		$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
 		if(!preg_match($email_exp,$email)) {
 		    $bad_param_values[] = 'Sorry! <span class="rsvp-email">'. $email ."</span> doesn't look like a valid email address!";
