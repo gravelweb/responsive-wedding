@@ -337,7 +337,7 @@ section h1 {
 }
 section h2 {
     font-family: "toe", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    font-size: 3em;
+    font-size: 2em;
     line-height: 120%;
     padding: 0 0px;
     margin: 0 0;
@@ -393,6 +393,29 @@ section strong {
 
 .accomodations ul {
 	margin: 0;
+}
+
+.registry a {
+	color: #c1cfa2;
+	font-size: 1.3em;
+	line-height: 1.7em;
+	text-decoration: underline;
+}
+
+.registry li,
+.rsvp-field li {
+	list-style-type: none;
+	list-style-image: none;
+	list-style: none;
+}
+
+.registry ul {
+	margin: 0;
+}
+
+.registry .links {
+	padding-top: 20px;
+	text-align: center;
 }
 
 .rsvp-field ul {
@@ -646,7 +669,7 @@ section strong {
         font-size: 3.1em;
     }
     section h2 {
-        font-size: 4em;
+        font-size: 2em;
     }
     
     /* RSVP Section */
@@ -1146,7 +1169,8 @@ a.email {
     border-radius: 2px;
 }
 
-.accomodations {
+.accomodations,
+.registry {
 	padding: 40px 0 30px 0;
 }
 
@@ -1157,7 +1181,8 @@ a.email {
 	line-height: 60%;
 }
 
-#accomodations-container {
+#accomodations-container,
+#registry-container {
 	color: black;
     font-family: Helvetica, Arial, sans-serif;
 
